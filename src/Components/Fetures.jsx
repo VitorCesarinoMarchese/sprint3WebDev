@@ -1,7 +1,7 @@
 function Fetures() {
   return (
     <>
-      <h2 className="font-bold text-5xl text-center mb-8">Pitstop</h2>
+      <h2 className="font-bold text-5xl text-center mb-8 mt-16">Pitstop</h2>
       <div className="flex justify-center gap-16">
         <div className="flex flex-col items-center">
           <img

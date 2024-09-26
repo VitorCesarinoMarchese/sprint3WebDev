@@ -1,21 +1,23 @@
+import { Link } from "react-router-dom";
+
 function NavBar() {
   return (
     <nav className="flex justify-between items-center bg-indigo-800 text-white p-12">
-      <a href="#">
+      <Link to="/">
         <img src="" alt="Logo" />
-      </a>
+      </Link>
       <ul className="list-none flex flex-row justify-between w-2/4">
         <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">
-          <a href="/Sobre">Sobre</a>
+          <Link to="/Sobre">Sobre</Link>
         </li>
         <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">
-          <a href="/Pitstop">Pitstop</a>
+          <Link to="/Pitstop">Pitstop</Link>
         </li>
         <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">
-          <a href="/Login">Login</a>
+          <Link to="/Login">Login</Link>
         </li>
         <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">
-          <a href="/Registro">Registro</a>
+          <Link to="/Registro">Registro</Link>
         </li>
       </ul>
     </nav>

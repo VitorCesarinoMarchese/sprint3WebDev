@@ -1,7 +1,7 @@
 function Problematica() {
   return (
     <>
-      <h2 className="font-bold text-5xl text-center mb-8">Problematica</h2>
+      <h2 className="font-bold text-5xl text-center mb-8 mt-16">Problematica</h2>
       <div className="flex justify-evenly">
         <div className="flex flex-col max-w-[600px] justify-evenly">
           <h3 className="font-bold text-3xl">Lorem ipsum dolor sit amet consectetur. Nunc id consectetur suspendisse integer.</h3>

@@ -1,10 +1,8 @@
-import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero";
-import Fetures from "../Components/Fetures";
-import Problematica from "../Components/Problematica";
-import Imgtext from "../Components/Imgtext";
+import NavBar from "../Components/NavBar";
 import Footer from "../Components/footer";
-function Home() {
+import Imgtext from "../Components/Imgtext";
+function Sobre() {
   return (
     <>
       <NavBar />
@@ -12,12 +10,9 @@ function Home() {
         span="Fe4funs"
         h1="Mais que só uma plataforma"
         p="Lorem ipsum dolor sit amet consectetur. Ultricies gravida aenean erat adipiscing. Sed rhoncus neque neque nam nulla."
-        btn="Teste agora"
         img="https://placehold.co/444x352"
         alt="Lorem Ipsum"
       />
-      <Fetures />
-      <Problematica />
       <Imgtext
         title="Lorem ipsum"
         span="Lorem ipsum"
@@ -26,9 +21,16 @@ function Home() {
         img="https://placehold.co/444x352"
         alt="Lorem Ipsum"
       />
-      <Footer/>
+      <Imgtext
+        title="Lorem ipsum"
+        span="Lorem ipsum"
+        txt="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+        img="https://placehold.co/444x352"
+        alt="Lorem Ipsum"
+      />
+      <Footer />
     </>
   );
 }
 
-export default Home;
+export default Sobre;
