@@ -2,13 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
   const location = useLocation();
-  const isActive = (path) => location.pathname === path;
+  const isActive = (p) => location.pathname === p;
 
   return (
     <>
       <footer className="bg-indigo-700 text-white p-8 mt-16">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-          {/* Pitstop Section */}
           <div>
             <h2 className="text-xl font-bold mb-4">Pitstop</h2>
             <p>
@@ -18,17 +17,14 @@ function Footer() {
             <p>Phasellus Quis Augue Elit Imperdiet Urna Eu Nisi Ornare Quis.</p>
           </div>
 
-          {/* Navegação Section */}
           <div>
             <h2 className="text-xl font-bold mb-4">Navegação</h2>
-            <ul>
+            <ul className="grid grid-cols-2 gap-4">
               <li>
                 <Link
                   to="/"
                   className={`${
-                    isActive("/")
-                      ? "text-red-500"
-                      : "hover:text-gray-300"
+                    isActive("/") ? "text-red-500" : "hover:text-gray-300"
                   }`}
                 >
                   Home
@@ -38,9 +34,7 @@ function Footer() {
                 <Link
                   to="/Sobre"
                   className={`${
-                    isActive("/Sobre")
-                      ? "text-red-500"
-                      : "hover:text-gray-300"
+                    isActive("/Sobre") ? "text-red-500" : "hover:text-gray-300"
                   }`}
                 >
                   Sobre
@@ -48,11 +42,19 @@ function Footer() {
               </li>
               <li>
                 <Link
+                  to="/Pitstop"
+                  className={`${
+                    isActive("/Pitstop") ? "text-red-500" : "hover:text-gray-300"
+                  }`}
+                >
+                  Pitstop
+                </Link>
+              </li>
+              {/* <li>
+                <Link
                   to="/Login"
                   className={`${
-                    isActive("/Login")
-                      ? "text-red-500"
-                      : "hover:text-gray-300"
+                    isActive("/Login") ? "text-red-500" : "hover:text-gray-300"
                   }`}
                 >
                   Login
@@ -69,11 +71,10 @@ function Footer() {
                 >
                   Registro
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
-          {/* Contatos Section */}
           <div>
             <h2 className="text-xl font-bold mb-4">Contatos</h2>
             <ul>
