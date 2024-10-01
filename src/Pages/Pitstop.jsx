@@ -106,7 +106,7 @@ function Pitstop() {
   return (
     <>
       <NavBar />
-      <div className={cardsVisibility}>
+      <div className={cardsVisibility + ' flex-grow'}>
         <h1 className="text-4xl font-bold text-center mt-16">
           Selecione o tipo
         </h1>

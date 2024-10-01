@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <nav className="flex justify-between items-center bg-indigo-800 text-white p-12">
       <Link to="/">
-        <img src="" alt="Logo" />
+        <span className="font-bold text-red-600 text-4xl hover:text-red-900 transition-all duration-300">Pitstop</span>
       </Link>
       <ul className="list-none flex flex-row justify-evenly w-1/4">
         <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">

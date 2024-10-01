@@ -2,7 +2,7 @@ function Fetures() {
   return (
     <>
       <h2 className="font-bold text-5xl text-center mb-8 mt-16">Pitstop</h2>
-      <div className="flex justify-center gap-16">
+      <div className="flex justify-center gap-16 flex-wrap">
         <div className="flex flex-col items-center">
           <img
             src="https://placehold.co/252x252"
