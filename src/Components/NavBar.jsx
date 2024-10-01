@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import Temp_Logo from "/Temp_Logo.png"
 
 function NavBar() {
   const location = useLocation();
@@ -6,7 +7,8 @@ function NavBar() {
   return (
     <nav className="flex justify-between items-center bg-indigo-800 text-white p-12">
       <Link to="/">
-        <span className="font-bold text-red-600 text-4xl hover:text-red-900 transition-all duration-300">Pitstop</span>
+        {/* <span className="font-bold text-red-600 text-4xl hover:text-red-900 transition-all duration-300">Pitstop</span> */}
+        <img src={Temp_Logo} alt="Logo" className="h-20"/>
       </Link>
       <ul className="list-none flex flex-row justify-evenly w-1/4">
         <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">

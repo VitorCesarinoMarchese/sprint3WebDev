@@ -11,10 +11,9 @@ function Footer() {
           <div>
             <h2 className="text-xl font-bold mb-4">Pitstop</h2>
             <p>
-              Lorem Ipsum Dolor Sit Amet Consectetur. Mauris Viverra Ipsum
-              Dictum Sit Sollicitudin Nullam.
+              Somos uma empresa criada por cinco entusiastas do automobilismo,
+              com foco especial na Fórmula E.
             </p>
-            <p>Phasellus Quis Augue Elit Imperdiet Urna Eu Nisi Ornare Quis.</p>
           </div>
 
           <div>
@@ -44,7 +43,9 @@ function Footer() {
                 <Link
                   to="/Pitstop"
                   className={`${
-                    isActive("/Pitstop") ? "text-red-500" : "hover:text-gray-300"
+                    isActive("/Pitstop")
+                      ? "text-red-500"
+                      : "hover:text-gray-300"
                   }`}
                 >
                   Pitstop
@@ -79,11 +80,10 @@ function Footer() {
             <h2 className="text-xl font-bold mb-4">Contatos</h2>
             <ul>
               <li className="flex items-center justify-center md:justify-start">
-                <span className="mr-2">📍</span> Lorem Ipsum Dolor Sit Amet
-                Consectetur.
+                <span className="mr-2">📍</span> Rua lorem ipsum, 321
               </li>
               <li className="flex items-center justify-center md:justify-start mt-2">
-                <span className="mr-2">📞</span> 12345-1234
+                <span className="mr-2">📞</span> 11 12345-1234
               </li>
               <li className="flex items-center justify-center md:justify-start mt-2">
                 <span className="mr-2">📧</span> lorem@ipsum.com
