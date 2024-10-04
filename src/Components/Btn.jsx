@@ -1,7 +1,7 @@
 function Btn(prop) {
   return (
     <button
-      className={`p-3 bg-indigo-700 transition-all duration-300 text-white rounded-lg w-40 hover:bg-indigo-900 ${prop.className}`}
+      className={`p-3 bg-white font-bold  transition-all duration-300 text-purple rounded-lg hover:shadow-none shadow-blur ${prop.className}`}
       onClick={prop.onClick}
     >
       {prop.nome}

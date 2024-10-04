@@ -6,7 +6,7 @@ function Footer() {
 
   return (
     <>
-      <footer className="bg-indigo-700 text-white p-8 mt-16">
+      <footer className="bg-gradient-to-b to-purple  from-black text-white p-8 mt-16">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
             <h2 className="text-xl font-bold mb-4">Pitstop</h2>
@@ -15,7 +15,8 @@ function Footer() {
               com foco especial na Fórmula E.
             </p>
           </div>
-
+          <div>
+          </div>
           <div>
             <h2 className="text-xl font-bold mb-4">Navegação</h2>
             <ul className="grid grid-cols-2 gap-4">
@@ -76,7 +77,7 @@ function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h2 className="text-xl font-bold mb-4">Contatos</h2>
             <ul>
               <li className="flex items-center justify-center md:justify-start">
@@ -89,7 +90,7 @@ function Footer() {
                 <span className="mr-2">📧</span> lorem@ipsum.com
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </footer>
     </>

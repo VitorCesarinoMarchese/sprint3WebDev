@@ -13,7 +13,7 @@ function Problematica() {
             <li>Aposte na volta mais rapida</li>
           </ul>
         </div>
-        <img className="md:w-[444px] w-[250px] mt-6" src="https://resources.formula-e.pulselive.com/photo-resources/2024/03/30/ced66d75-7f69-4a08-9f6c-a9224ecdbb0e/2024-tokyo-race-start.jpeg?width=1440&height=810" alt="placeholder" />
+        <img className="md:w-[444px] w-[250px] mt-6 rounded-xl" src="https://resources.formula-e.pulselive.com/photo-resources/2024/03/30/ced66d75-7f69-4a08-9f6c-a9224ecdbb0e/2024-tokyo-race-start.jpeg?width=1440&height=810" alt="placeholder" />
       </div>
     </>
   );
