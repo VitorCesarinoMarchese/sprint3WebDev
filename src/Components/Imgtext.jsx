@@ -12,7 +12,7 @@ function Imgtext(prop) {
                 {prop.txt}
             </p>
           </div>
-          <img src={prop.img} alt={prop.alt} className="w-[444px] h-[352px]"/>
+          <img src={prop.img} alt={prop.alt} className="w-[444px] h-[352px] rounded-xl"/>
         </div>
       </div>
     </>

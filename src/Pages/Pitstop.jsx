@@ -143,7 +143,7 @@ function Pitstop() {
           {"<- Voltar"}
         </button>
         <div className="flex flex-row-reverse justify-between">
-          <CoinCounter saldo={saldo} />
+          <CoinCounter saldo={Math.floor(saldo)} />
           <CardPrincipal
             titulo={cardsInfo[betType].titulo}
             desc={cardsInfo[betType].desc}

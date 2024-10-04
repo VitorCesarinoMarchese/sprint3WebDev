@@ -5,7 +5,7 @@ function NavBar() {
   const location = useLocation();
   const isActive = (p) => location.pathname === p
   return (
-    <nav className="flex justify-between items-center bg-indigo-800 text-white p-12">
+    <nav className="flex justify-between items-center bg-transparent text-white p-12 h-56">
       <Link to="/">
         {/* <span className="font-bold text-red-600 text-4xl hover:text-red-900 transition-all duration-300">Pitstop</span> */}
         <img src={Temp_Logo} alt="Logo" className="h-20"/>

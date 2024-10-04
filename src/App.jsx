@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#250153] via-black to-black text-white">
       <RouterProvider router={router}/>
     </div>
   );
