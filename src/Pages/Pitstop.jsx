@@ -12,12 +12,16 @@ import pitstop from "../assets/pitstop.jpeg";
 import voltamaisrapida from "../assets/voltamaisrapida.webp";
 import arrow from "../assets/left-arrow.svg";
 import AnuncioBar from "../Components/AnuncioBar";
+import ResultadoCorrida from "../Components/ResultadoCorrida";
 
 function Pitstop() {
   const [cardsVisibility, setCardsVisibility] = useState("");
   const [betType, setBetType] = useState(0);
   const [SelectPiloto, setSelectPiloto] = useState([]);
   const [cap, setCap] = useState(0);
+  const [winners, SetWinners] = useState([]);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [ganhos, setGanhos] = useState(0)
   const [saldo, setSaldo] = useState(() => {
     const saldosalvo = localStorage.getItem("balance");
     return saldosalvo ? JSON.parse(saldosalvo) : 1000;
@@ -32,30 +36,24 @@ function Pitstop() {
       alert("O valor da aposta deve ser maior que zero.");
       return;
     }
-
-    const newBalance = setSaldo(saldo - betAmount);
-
+    setGanhos(-betAmount)
+    const newBalance = saldo - betAmount;
     if (newBalance < 0) {
       alert("Saldo insuficiente para realizar a aposta.");
       return;
     }
-
-    return newBalance;
+    setSaldo(newBalance);
   };
+
   const OnVitoria = () => {
     if (betAmount <= 0) {
       alert("O valor da aposta deve ser maior que zero.");
       return;
     }
-    const newBalance = setSaldo(saldo + betAmount * 2);
-
-    if (newBalance < 0) {
-      alert("Saldo insuficiente para realizar a aposta.");
-      return;
-    }
-    return newBalance;
+    setGanhos(betAmount * 2)
+    const newBalance = saldo + betAmount * 2;
+    setSaldo(newBalance);
   };
-
   const pickRandomWinner = (many) => {
     if (many < 1) return null;
     let results = [];
@@ -110,7 +108,7 @@ function Pitstop() {
         className={`
             ${
               cardsVisibility === "hidden"
-                ? "self-start gap-2 items-center flex"
+                ? "self-start gap-2 items-center flex ml-14"
                 : "hidden"
             }
           `}
@@ -121,10 +119,8 @@ function Pitstop() {
         <img src={arrow} alt="seta para esquerda" />
         {"Voltar"}
       </button>
-      <div className={cardsVisibility + "flex-grow flex flex-col gap-12"}>
-        <h1 className="text-4xl font-bold text-center">
-          Selecione o tipo
-        </h1>
+      <div className={cardsVisibility + " flex-grow flex flex-col gap-12"}>
+        <h1 className="text-4xl font-bold text-center">Selecione o tipo</h1>
         <ul className="mt-12 flex flex-wrap justify-center gap-8">
           {cardsInfo.map((data) => (
             <li className="list-none" key={data.id}>
@@ -137,7 +133,10 @@ function Pitstop() {
                 onClick={() => {
                   setBetType(data.id);
                   setCardsVisibility("hidden");
+                  console.log(cardsVisibility);
                   setCap(data.id === 0 ? 3 : 1);
+                  setSaldo(JSON.parse(localStorage.getItem("balance")));
+                  return;
                 }}
               />
             </li>
@@ -150,7 +149,6 @@ function Pitstop() {
           cardsVisibility === "hidden" ? "flex flex-col p-14" : "hidden"
         }
       >
-
         <div className="flex flex-row-reverse justify-between">
           <CoinCounter saldo={Math.floor(saldo)} />
           <CardPrincipal
@@ -187,23 +185,21 @@ function Pitstop() {
           id="Apostar"
           placeholder="100"
           className="border border-white text-black rounded-xl p-2 w-fit self-center mt-8 "
-          onChange={(e) => SetBetAmount(e.target.value)}
+          onChange={(e) => SetBetAmount(Number(e.target.value))}
         />
         <Btn
           nome="Finalizar"
-          className="self-center mt-4 !bg-red !text-white shadow-red" 
-          onClick={() => {
-            const winners = pickRandomWinner(cap);
-            if (winners) {
-              alert(
-                `O vencedor é: ${
-                  winners.length === 1
-                    ? winners[0].nome
-                    : winners.map((data) => data.nome).join(", ")
-                }`
-              );
-            }
+          className="self-center mt-4 !bg-red !text-white shadow-red"
+          onClick={async () => {
+            SetWinners(pickRandomWinner(cap));
+            setIsPopupVisible(true);
           }}
+        />
+        <ResultadoCorrida
+          pilotos={winners}
+          isPopupVisible={isPopupVisible}
+          onClose={() => setIsPopupVisible(false)}
+          ganhos={ganhos}
         />
       </div>
       <Footer />

@@ -1,6 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CardPiloto = (prop) => {
+  useEffect(() => {
+    if (prop.select) {
+      setText("Deselect");
+    } else {
+      setText("Select");
+    }
+  }, [prop.select]);
   const [text, setText] = useState("Select")
   return (
     <div className="flex flex-col items-center p-4 rounded-lg border bg-black border-black text-white w-60">
@@ -21,10 +28,8 @@ const CardPiloto = (prop) => {
             onClick={() => {
               if (prop.select === true) {
                 prop.onDeselect(); 
-                setTimeout(() => setText("Select"), 200); 
               } else {
                 prop.onSelect(); 
-                setTimeout(() => setText("Deselect"), 200); 
               }
             }}
         >
