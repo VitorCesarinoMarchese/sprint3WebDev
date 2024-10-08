@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 const CardPiloto = (prop) => {
+  const [text, setText] = useState("Select")
   return (
-    <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-lg w-60">
+    <div className="flex flex-col items-center p-4 rounded-lg border bg-black border-black text-white w-60">
       <img
         src={prop.piloto.img}
         alt={prop.piloto.nome}
@@ -9,24 +12,23 @@ const CardPiloto = (prop) => {
       <h3 className="text-lg font-semibold">{prop.piloto.nome}</h3>
       <div className="mt-2 flex gap-2">
         <button
-          className={
-            prop.select == true
-              ? "hidden"
-              : "bg-green-500 text-white p-2 rounded"
-          }
-          onClick={prop.select == true ? "" :prop.onSelect}
+          className={`transition hover:shadow-none duration-500 
+            ${
+              prop.select == true
+                ? "bg-red shadow-blur-red text-white p-2 rounded"
+                : "bg-blue shadow-blur-blue text-white p-2 rounded transition hover:shadow-none duration-300"
+            }`}
+            onClick={() => {
+              if (prop.select === true) {
+                prop.onDeselect(); 
+                setTimeout(() => setText("Select"), 200); 
+              } else {
+                prop.onSelect(); 
+                setTimeout(() => setText("Deselect"), 200); 
+              }
+            }}
         >
-          Select
-        </button>
-        <button
-          className={
-            prop.select != true
-              ? "hidden"
-              : "bg-red-500 text-white p-2 rounded"
-          }
-          onClick={prop.select != true ? "" :prop.onDeselect}
-        >
-          Deselect
+          {text}
         </button>
       </div>
     </div>
