@@ -160,7 +160,7 @@ function Pitstop() {
         <h2 className="mt-16 mb-4 text-2xl font-bold text-center">
           Selecione o seu piloto
         </h2>
-        <div className="flex gap-4 justify-between mt-4 flex-wrap">
+        <div className="flex gap-4 justify-center md:justify-between mt-4  flex-wrap">
           {pilots.map((piloto) => (
             <CardPiloto
               key={piloto.id}
