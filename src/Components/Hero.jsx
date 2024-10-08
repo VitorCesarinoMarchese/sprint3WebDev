@@ -11,7 +11,7 @@ function Hero(prop) {
           <p className="text-lg mt-8 max-w-[640px] mb-5">{prop.p}</p>
           {prop.btn ? <Btn className="w-48" nome={prop.btn} onClick={() => navigate("/pitstop")}/>: <></>}
         </div>
-        <img src={prop.img} alt={prop.alt} className="xl:flex hidden h-[352px] w-[444px] rounded-xl"/>
+        <img src={prop.img} alt={prop.alt} className="xl:flex hidden h-[352px] rounded-xl"/>
       </div>
     </>
   );

@@ -58,5 +58,15 @@
     "id": 12,
     "nome": "Nick Cassidy",
     "img": "https://static-files.formula-e.pulselive.com/drivers/84467676-4d5d-4c97-ae07-0b7520bb95ea/candid/small/47579af2-ce5a-4ba9-800b-b6821ca934e3.png"
+  },
+  {
+    "id": 13,
+    "nome": "Nyck De Vries",
+    "img": "https://static-files.formula-e.pulselive.com/drivers/84467676-4d5d-4c97-ae07-0b7520bb95ea/right/small/47579af2-ce5a-4ba9-800b-b6821ca934e3.png"
+  },
+  {
+    "id": 14,
+    "nome": "Norman Nato",
+    "img": "https://static-files.formula-e.pulselive.com/drivers/84467676-4d5d-4c97-ae07-0b7520bb95ea/right/large/ef604bcc-19fe-4463-9667-97933cbf0065.png"
   }
 ]

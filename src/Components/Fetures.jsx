@@ -1,13 +1,17 @@
+import Odds from "../assets/odds.svg";
+import Award from "../assets/award.svg";
+import Experience from "../assets/experience.svg";
+
 function Fetures() {
   return (
     <>
       <h2 className="font-bold text-5xl text-center mb-8 mt-16">Pitstop</h2>
-      <div className="flex justify-center gap-16 flex-wrap">
+      <div className="flex justify-center gap-32 flex-wrap mt-16 mb-12">
         <div className="flex flex-col items-center">
           <img
-            src="https://infonet.com.br/wp-content/uploads/2022/01/odd.jpg"
+            src={Odds}
             alt="odds"
-            className="mb-2 w-[252px] h-[252px] rounded-xl"
+            className="mb-2 w-[160px] h-[160px] rounded-xl"
           />
           <span className="font-bold text-2xl">Melhores odds</span>
           <p className="max-w-60 text-center">
@@ -17,9 +21,9 @@ function Fetures() {
         </div>
         <div className="flex flex-col items-center">
           <img
-            src="https://resources.formula-e.pulselive.com/photo-resources/2024/07/21/f3829ea2-15d1-4471-b99d-2fbf7df89bc0/Wehrlein-2024-World-Champion-Formula-E.jpg?width=1440&height=810"
+            src={Award}
             alt="premios"
-            className="mb-2 w-[252px] h-[252px] rounded-xl"
+            className="mb-2 w-[160px] h-[160px] rounded-xl"
           />
           <span className="font-bold text-2xl">Premios incriveis</span>
           <p className="max-w-60 text-center">
@@ -29,9 +33,9 @@ function Fetures() {
         </div>
         <div className="flex flex-col items-center">
           <img
-            src="https://resources.formula-e.pulselive.com/photo-resources/2024/09/18/dcc0f960-e95e-4891-999c-86b28b09d0c4/1020196363-20240525-EPS1011_074117ZALS1063.jpg?width=1440&height=810"
+            src={Experience}
             alt="placeholder"
-            className="mb-2 w-[252px] h-[252px] rounded-xl" 
+            className="mb-2 w-[160px] h-[160px] rounded-xl" 
           />
           <span className="font-bold text-2xl">Melhore sua experiência</span>
           <p className="max-w-60 text-center">
