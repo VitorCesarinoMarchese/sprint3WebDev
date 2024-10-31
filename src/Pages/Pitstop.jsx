@@ -108,7 +108,7 @@ function Pitstop() {
         className={`
             ${
               cardsVisibility === "hidden"
-                ? "self-start gap-2 items-center flex ml-14"
+                ? "self-start gap-2 items-center flex ml-8 md:ml-14"
                 : "hidden"
             }
           `}
@@ -146,10 +146,10 @@ function Pitstop() {
       </div>
       <div
         className={
-          cardsVisibility === "hidden" ? "flex flex-col p-14" : "hidden"
+          cardsVisibility === "hidden" ? "flex flex-col md:p-14" : "hidden"
         }
       >
-        <div className="flex flex-row-reverse justify-between">
+        <div className="flex flex-row-reverse justify-between flex-wrap p-4 gap-4 md:p-0 md:gap-0">
           <CoinCounter saldo={Math.floor(saldo)} />
           <CardPrincipal
             titulo={cardsInfo[betType].titulo}

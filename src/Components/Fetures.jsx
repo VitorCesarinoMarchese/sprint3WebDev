@@ -5,8 +5,8 @@ import Experience from "../assets/experience.svg";
 function Fetures() {
   return (
     <>
-      <h2 className="font-bold text-5xl text-center mb-8 mt-16">Pitstop</h2>
-      <div className="flex justify-center gap-32 flex-wrap mt-16 mb-12">
+      <h2 className="font-bold text-5xl text-center mb-2 mt-8 md:mb-8 md:mt-16">Pitstop</h2>
+      <div className="flex justify-center md:gap-32 gap-16 flex-wrap mt-8 mb-8 md:mt-16 md:mb-12">
         <div className="flex flex-col items-center">
           <img
             src={Odds}

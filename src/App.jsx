@@ -5,30 +5,21 @@ import NotFound from "./Pages/NotFound";
 import Sobre from "./Pages/Sobre";
 import Pitstop from "./Pages/Pitstop";
 import HomeSport from "./Pages/HomeSport";
-const sports = [{nome: "formulaE"}, {nome: "escalada"}]
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home/>
   },
   {
-    path: "/Sobre",
+    path: "/Sobre/:sport",
     element: <Sobre/>
   },
   {
-    path: "/Sobre_formulaE",
-    element: <Sobre/>
-  },
-  {
-    path: "home_formulaE",
-    element: <HomeSport  sport={sports[0]}/>
+    path: "/home/:sport",
+    element: <HomeSport/>
   },  
   {
-    path: "home_escalada",
-    element: <HomeSport  sport={sports[1]}/>
-  },
-  {
-    path: "/Pitstop",
+    path: "/Pitstop/:sport",
     element: <Pitstop/>
   },
   {

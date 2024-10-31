@@ -1,14 +1,15 @@
-/* eslint-disable react/prop-types */
 import NavBar from "../Components/NavBar";
 import Hero from "../Components/Hero";
 import Fetures from "../Components/Fetures";
 import Problematica from "../Components/Problematica";
 // import Imgtext from "../Components/Imgtext";
 import Footer from "../Components/Footer";
-function HomeSport({sport}) {
+import { useParams } from "react-router-dom";
+function HomeSport() {
+  let param = useParams()
   return (
     <>
-      <NavBar sport={sport.nome}/>
+      <NavBar sport={param.sport}/>
       <Hero
         span="Fe4funs"
         h1="Mais que só uma plataforma"

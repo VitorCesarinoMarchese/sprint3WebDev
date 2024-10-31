@@ -1,31 +1,72 @@
-import { Link, useLocation } from "react-router-dom";
-import Logo from "/logo.png"
+import { useState } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+import logoFe from "../assets/LogoVermelha.svg";
+import { List, X } from "@phosphor-icons/react";
 
-function NavBar({sport}) {
+export default function NavBar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const isActive = (p) => location.pathname === p
+  const param = useParams();
+  const isActive = (p) => location.pathname === p;
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
-    <nav className="flex justify-between items-center bg-transparent text-white p-12 h-56">
-      <Link to={`/home_${sport}`}>
-        {/* <span className="font-bold text-red-600 text-4xl hover:text-red-900 transition-all duration-300">Pitstop</span> */}
-        <img src={Logo} alt="Logo" className="h-32"/>
+    <nav className="flex flex-wrap justify-between items-center bg-transparent text-white p-4 md:p-12 h-auto md:h-56">
+      <Link to={`/home/${param.sport}`} className="flex items-center">
+        {param.sport == "formulaE" ? (
+          <img src={logoFe} alt="Logo" className="h-16 md:h-32" />
+        ) : (
+          <></>
+        )}
       </Link>
-      <ul className="list-none flex flex-row justify-evenly w-1/4">
-        <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray">
-          <Link to={`/Sobre_${sport}`} className={`${isActive("/Sobre") ? "text-red" : "hover:text-gray"}`}>Sobre</Link>
+      <button
+        className="md:hidden text-white focus:outline-none"
+        onClick={toggleMenu}
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+      >
+        {isMenuOpen ? (
+          <X size={24} weight="bold" />
+        ) : (
+          <List size={24} weight="bold" />
+        )}
+      </button>
+      <ul
+        className={`${
+          isMenuOpen ? "flex" : "hidden"
+        } md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 space-y-2 md:space-y-0 md:space-x-6`}
+      >
+        <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-300">
+          <Link
+            to={`/`}
+            className={`${
+              isActive("/") ? "text-red-500" : "hover:text-gray-300"
+            }`}
+          >
+            Home
+          </Link>
         </li>
-        <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray">
-          <Link to={`/Pitstop_${sport}`} className={`${isActive("/Pitstop") ? "text-red" : "hover:text-gray"}`}>Pitstop</Link>
+        <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-300">
+          <Link
+            to={`/Sobre/${param.sport}`}
+            className={`${
+              isActive("/Sobre") ? "text-red-500" : "hover:text-gray-300"
+            }`}
+          >
+            Sobre
+          </Link>
         </li>
-        {/* <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">
-          <Link to="/Login" className={`${isActive("/Login") ? "text-red-500" : "hover:text-gray-300"}`}>Login</Link>
+        <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-300">
+          <Link
+            to={`/Pitstop/${param.sport}`}
+            className={`${
+              isActive("/Pitstop") ? "text-red-500" : "hover:text-gray-300"
+            }`}
+          >
+            Pitstop
+          </Link>
         </li>
-        <li className="font-semibold transition-colors duration-300 text-lg hover:text-gray-400">
-          <Link to="/Registro" className={`${isActive("/Registro") ? "text-red-500" : "hover:text-gray-300"}`}>Registro</Link>
-        </li> */}
       </ul>
     </nav>
   );
 }
-
-export default NavBar;
