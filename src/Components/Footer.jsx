@@ -11,8 +11,7 @@ function Footer() {
           <div>
             <h2 className="text-xl font-bold mb-4">Pitstop</h2>
             <p>
-              Somos uma empresa criada por cinco entusiastas do automobilismo,
-              com foco especial na Fórmula E.
+              Somos uma empresa criada por cinco entusiastas dos esportes.
             </p>
           </div>
           <div>
@@ -24,7 +23,7 @@ function Footer() {
                 <Link
                   to="/"
                   className={`${
-                    isActive("/") ? "text-red-500" : "hover:text-gray-300"
+                    isActive("/") ? "text-red" : "hover:text-[#b3b3b3]"
                   }`}
                 >
                   Home
@@ -34,7 +33,7 @@ function Footer() {
                 <Link
                   to="/Sobre"
                   className={`${
-                    isActive("/Sobre") ? "text-red-500" : "hover:text-gray-300"
+                    isActive("/Sobre") ? "text-red" : "hover:text-[#b3b3b3]"
                   }`}
                 >
                   Sobre
@@ -45,8 +44,8 @@ function Footer() {
                   to="/Pitstop"
                   className={`${
                     isActive("/Pitstop")
-                      ? "text-red-500"
-                      : "hover:text-gray-300"
+                      ? "text-red"
+                      : "hover:text-[#b3b3b3]"
                   }`}
                 >
                   Pitstop
@@ -56,7 +55,7 @@ function Footer() {
                 <Link
                   to="/Login"
                   className={`${
-                    isActive("/Login") ? "text-red-500" : "hover:text-gray-300"
+                    isActive("/Login") ? "text-red" : "hover:text-[#b3b3b3]"
                   }`}
                 >
                   Login
@@ -67,8 +66,8 @@ function Footer() {
                   to="/Registro"
                   className={`${
                     isActive("/Registro")
-                      ? "text-red-500"
-                      : "hover:text-gray-300"
+                      ? "text-red"
+                      : "hover:text-[#b3b3b3]"
                   }`}
                 >
                   Registro

@@ -2,9 +2,21 @@ import Hero from "../Components/Hero";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import Imgtext from "../Components/Imgtext";
+import { useParams } from "react-router-dom";
 function Sobre() {
+  let param = useParams()
+  let bgColor = () => {
+    if(param.sport == undefined){
+      return "#8F7337"
+    }
+    if(param.sport == "formulaE"){
+      return "#4e0b0b"
+    }
+    return "#F38F10"
+  }
+
   return (
-    <>
+    <div className={`bg-gradient-to-b from-black via-[${bgColor()}] to-black`}>
       <NavBar />
       <Hero
         span=""
@@ -29,7 +41,7 @@ function Sobre() {
         alt="Lorem Ipsum"
       />
       <Footer />
-    </>
+    </div>
   );
 }
 

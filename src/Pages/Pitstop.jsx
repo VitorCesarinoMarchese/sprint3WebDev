@@ -7,12 +7,14 @@ import CoinCounter from "../Components/CoinCounter";
 import Btn from "../Components/Btn";
 import { useState, useEffect } from "react";
 import pilots from "../assets/pilots.json";
+import escaladores from "../assets/escaladores.json"
 import podium from "../assets/podium.webp";
 import pitstop from "../assets/pitstop.jpeg";
 import voltamaisrapida from "../assets/voltamaisrapida.webp";
 import arrow from "../assets/left-arrow.svg";
 import AnuncioBar from "../Components/AnuncioBar";
 import ResultadoCorrida from "../Components/ResultadoCorrida";
+import { useParams } from "react-router-dom";
 
 function Pitstop() {
   const [cardsVisibility, setCardsVisibility] = useState("");
@@ -59,14 +61,22 @@ function Pitstop() {
     let results = [];
 
     while (results.length < many) {
-      const randomIndex = Math.floor(Math.random() * pilots.length);
-      const winner = pilots[randomIndex];
-
-      if (!results.some((pilot) => pilot.id === winner.id)) {
-        results.push(winner);
+      if(param.sport == "formulaE"){
+        const randomIndex = Math.floor(Math.random() * pilots.length);
+        const winner = pilots[randomIndex];
+          if (!results.some((pilot) => pilot.id === winner.id)) {
+            results.push(winner);
+          }
+      }else{
+        const randomIndex = Math.floor(Math.random() * escaladores.length);
+        const winner = escaladores[randomIndex];
+          if (!results.some((e) => e.id === winner.id)) {
+            results.push(winner);
+          }
       }
-    }
 
+
+    }
     const isWinning = SelectPiloto.some((selectedId) =>
       results.some((winner) => winner.id === selectedId)
     );
@@ -80,7 +90,7 @@ function Pitstop() {
     return results;
   };
 
-  const cardsInfo = [
+  const cardsInfoFe = [
     {
       id: 0,
       titulo: "Pilotos no Pódio",
@@ -99,10 +109,41 @@ function Pitstop() {
       desc: "Escolha o piloto que fará a volta mais rápida na pista.",
       img: voltamaisrapida,
     },
-  ];
+  ];  
+  const cardsInfoEscalada = [
+    {
+      id: 0,
+      titulo: "Escaladores no podio",
+      desc: "Selecione três escaladores que você acha que estarão no pódio.",
+      img: "https://images.ifsc-climbing.org/ifsc/image/private/t_ratio4_3-size60-f_webp-c_fill/prd/lvqbnbj1hq2y5wkzakaw",
+    },
+    {
+      id: 1,
+      titulo: "Escalador com mais tops",
+      desc: "Aposte no escalador que terá mais tops no boulder.",
+      img: "https://usaclimbing.org/wp-content/uploads/2021/08/A-Sanders-Jan-Virt.jpeg",
+    },
+    {
+      id: 2,
+      titulo: "Melhor escalador na guiada",
+      desc: "Escolha o escalador que ira mais longe na guiada.",
+      img: "https://cdn.climbing.com/wp-content/uploads/2024/07/51500960863_fb064c87a9_c-1.jpg?width=730",
+    },
+  ];  
+  let param = useParams()
+  let bgColor = () => {
+    if(param.sport == undefined){
+      return "#8F7337"
+    }
+    if(param.sport == "formulaE"){
+      return "#4e0b0b"
+    }if(param.sport == "Escalada"){
+      return "#88612e"
+    }
+  }
 
   return (
-    <>
+    <div className={`bg-gradient-to-b from-black via-[${bgColor()}] to-black`}>
       <NavBar />
       <button
         className={`
@@ -122,7 +163,25 @@ function Pitstop() {
       <div className={cardsVisibility + " flex-grow flex flex-col gap-12"}>
         <h1 className="text-4xl font-bold text-center">Selecione o tipo</h1>
         <ul className="mt-12 flex flex-wrap justify-center gap-8">
-          {cardsInfo.map((data) => (
+          {param.sport == "formulaE"? cardsInfoFe.map((data) => (
+            <li className="list-none" key={data.id}>
+              <Card
+                btnnome="Selecionar"
+                desc={data.desc}
+                titulo={data.titulo}
+                img={data.img}
+                alt={data.titulo}
+                onClick={() => {
+                  setBetType(data.id);
+                  setCardsVisibility("hidden");
+                  console.log(cardsVisibility);
+                  setCap(data.id === 0 ? 3 : 1);
+                  setSaldo(JSON.parse(localStorage.getItem("balance")));
+                  return;
+                }}
+              />
+            </li>
+          )): cardsInfoEscalada.map((data) => (
             <li className="list-none" key={data.id}>
               <Card
                 btnnome="Selecionar"
@@ -152,16 +211,16 @@ function Pitstop() {
         <div className="flex flex-row-reverse justify-between flex-wrap p-4 gap-4 md:p-0 md:gap-0">
           <CoinCounter saldo={Math.floor(saldo)} />
           <CardPrincipal
-            titulo={cardsInfo[betType].titulo}
-            desc={cardsInfo[betType].desc}
-            imgSrc={cardsInfo[betType].img}
+            titulo={param.sport == "formulaE" ? cardsInfoFe[betType].titulo: cardsInfoEscalada[betType].titulo}
+            desc={param.sport == "formulaE" ? cardsInfoFe[betType].desc: cardsInfoEscalada[betType].desc}
+            imgSrc={param.sport == "formulaE" ? cardsInfoFe[betType].img: cardsInfoEscalada[betType].img}
           />
         </div>
         <h2 className="mt-16 mb-4 text-2xl font-bold text-center">
           Selecione o seu piloto
         </h2>
         <div className="flex gap-4 justify-center md:justify-between mt-4  flex-wrap">
-          {pilots.map((piloto) => (
+          {param.sport == "formulaE" ? pilots.map((piloto) => (
             <CardPiloto
               key={piloto.id}
               piloto={piloto}
@@ -175,6 +234,22 @@ function Pitstop() {
               select={SelectPiloto.includes(piloto.id)}
               onDeselect={() =>
                 setSelectPiloto((prev) => prev.filter((id) => id !== piloto.id))
+              }
+            />
+          )): escaladores.map((escalador) => (
+            <CardPiloto
+              key={escalador.id}
+              piloto={escalador}
+              onSelect={() => {
+                if (SelectPiloto.length < cap) {
+                  setSelectPiloto((prev) => [...prev, escalador.id]);
+                } else {
+                  alert(`O limite de pilotos selecionáveis é de ${cap}`);
+                }
+              }}
+              select={SelectPiloto.includes(escalador.id)}
+              onDeselect={() =>
+                setSelectPiloto((prev) => prev.filter((id) => id !== escalador.id))
               }
             />
           ))}
@@ -203,7 +278,7 @@ function Pitstop() {
         />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
