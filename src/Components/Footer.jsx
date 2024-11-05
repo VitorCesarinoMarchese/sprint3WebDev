@@ -11,7 +11,7 @@ function Footer() {
           <div>
             <h2 className="text-xl font-bold mb-4">Pitstop</h2>
             <p>
-              Somos uma empresa criada por cinco entusiastas dos esportes.
+              Somos uma empresa fundada por cinco entusiastas apaixonados, com a missão de ampliar o reconhecimento e o alcance de esportes emergentes.
             </p>
           </div>
           <div>
@@ -23,7 +23,7 @@ function Footer() {
                 <Link
                   to="/"
                   className={`${
-                    isActive("/") ? "text-red" : "hover:text-[#b3b3b3]"
+                    isActive("/") ? "text-home" : "hover:text-[#b3b3b3]"
                   }`}
                 >
                   Home
@@ -33,7 +33,7 @@ function Footer() {
                 <Link
                   to="/Sobre"
                   className={`${
-                    isActive("/Sobre") ? "text-red" : "hover:text-[#b3b3b3]"
+                    isActive("/Sobre") ? "text-home" : "hover:text-[#b3b3b3]"
                   }`}
                 >
                   Sobre
@@ -44,7 +44,7 @@ function Footer() {
                   to="/Pitstop"
                   className={`${
                     isActive("/Pitstop")
-                      ? "text-red"
+                      ? "text-home"
                       : "hover:text-[#b3b3b3]"
                   }`}
                 >

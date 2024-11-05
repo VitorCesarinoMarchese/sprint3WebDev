@@ -7,16 +7,17 @@ function Sobre() {
   let param = useParams()
   let bgColor = () => {
     if(param.sport == undefined){
-      return "#8F7337"
+      return "via-home"
     }
     if(param.sport == "formulaE"){
-      return "#4e0b0b"
+      return "via-formulaE"
+    }if(param.sport == "Escalada"){
+      return "via-escalada"
     }
-    return "#F38F10"
   }
 
   return (
-    <div className={`bg-gradient-to-b from-black via-[${bgColor()}] to-black`}>
+    <div className={`bg-gradient-to-b from-black ${bgColor()} to-black`}>
       <NavBar />
       <Hero
         span=""

@@ -8,14 +8,15 @@ import { useParams } from "react-router-dom";
 function HomeSport() {
   let param = useParams();
   let bgColor = () => {
-    if (param.sport == undefined) {
-      return "#8F7337";
+    if(param.sport == undefined){
+      return "via-home"
     }
-    if (param.sport == "formulaE") {
-      return "#4e0b0b";
+    if(param.sport == "formulaE"){
+      return "via-formulaE"
+    }if(param.sport == "Escalada"){
+      return "via-escalada"
     }
-    return "#88612e";
-  };
+  }
   let sports = [
     {
       sport: "FormulaE",
@@ -62,7 +63,7 @@ function HomeSport() {
   ];
 
   return (
-    <div className={`bg-gradient-to-b from-black via-[${bgColor()}] to-black`}>
+    <div className={`bg-gradient-to-b from-black ${bgColor()} to-black`}>
       <NavBar sport={param.sport} />
       <Hero
         span={param.sport == "formulaE"? sports[0].hero.span: sports[1].hero.span}

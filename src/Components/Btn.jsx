@@ -4,17 +4,17 @@ function Btn(prop) {
   let param = useParams()
   let bgColor = () => {
     if(param.sport == undefined){
-      return "#8F7337"
+      return "text-home"
     }
     if(param.sport == "formulaE"){
-      return "#4e0b0b"
+      return "text-formulaE"
     }if(param.sport == "Escalada"){
-      return "#88612e"
+      return "text-escalada"
     }
   }
   return (
     <button
-      className={`p-3 bg-white font-bold  transition-all duration-300 text-[${bgColor()}] rounded-lg hover:shadow-none shadow-blur ${prop.className}`}
+      className={`p-3 bg-white font-bold  transition-all duration-300 ${bgColor()} rounded-lg hover:shadow-none shadow-blur ${prop.className}`}
       onClick={prop.onClick}
     >
       {prop.nome}

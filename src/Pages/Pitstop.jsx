@@ -133,17 +133,17 @@ function Pitstop() {
   let param = useParams()
   let bgColor = () => {
     if(param.sport == undefined){
-      return "#8F7337"
+      return "via-home"
     }
     if(param.sport == "formulaE"){
-      return "#4e0b0b"
+      return "via-formulaE"
     }if(param.sport == "Escalada"){
-      return "#88612e"
+      return "via-escalada"
     }
   }
 
   return (
-    <div className={`bg-gradient-to-b from-black via-[${bgColor()}] to-black`}>
+    <div className={`bg-gradient-to-b from-black ${bgColor()} to-black`}>
       <NavBar />
       <button
         className={`

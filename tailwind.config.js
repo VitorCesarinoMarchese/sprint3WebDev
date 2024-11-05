@@ -10,7 +10,10 @@ export default {
       green: "#22c55e",
       blue: "#2563eb",
       red: "#891212",
-      test: "#a5b4fc"
+      test: "#a5b4fc",
+      home: "#8F7337",
+      formulaE: "#4e0b0b",
+      escalada: "#88612e"
     },
     extend: {
       boxShadow: {
